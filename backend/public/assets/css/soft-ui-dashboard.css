@@ -10383,8 +10383,8 @@ fieldset:disabled .btn {
 }
 
 .btn-blue-cardio {
-  background-color: #4682c8;
-  color: #ffffff;
+  background-image: radial-gradient(370px circle at 20% 90%, rgba(33, 99, 120, 0.8) 0, #121A29 100%);
+  color: #FFF;
 }
 
 .btn-red-cardio {
@@ -10406,7 +10406,8 @@ fieldset:disabled .btn {
 
 /* íconos */
 .bg-gradient-cardio {
-  background-color: #4682c8;
+  background-image: radial-gradient(370px circle at 20% 90%, rgba(33, 99, 120, 0.8) 0, #121A29 100%);
+  color: #FFF;
 }
 
 .bg-gradient-pink-white {
@@ -10414,7 +10415,8 @@ fieldset:disabled .btn {
 }
 
 .bg-gradient-pink {
-  background-image: linear-gradient(0deg, #4682c8, #4682c8 75%);
+  background-image: radial-gradient(370px circle at 20% 90%, rgba(33, 99, 120, 0.8) 0, #121A29 100%);
+  color: #FFF;
 }
 
 .bg-gradient-red {
@@ -10422,7 +10424,7 @@ fieldset:disabled .btn {
 }
 
 .morado-musa-text{
-  color: rgb(98 56 246);
+  color: #344767;
 }
 
 .bg-musa-morado{
@@ -10430,7 +10432,8 @@ fieldset:disabled .btn {
 }
 
 .bg-pink{
-  background-color: #4682c8;
+  background-image: radial-gradient(370px circle at 20% 90%, rgba(33, 99, 120, 0.8) 0, #121A29 100%);
+  color: #FFF;
 }
 
 .bg-turquoise{
@@ -22938,7 +22941,8 @@ z-index: 9999;
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon {
   /* background-image: linear-gradient(310deg, #ff0032 0%, #b10303 100%); */
-  background-image: linear-gradient(0deg, #4682c8, #4682c8 100%);
+  background-image: radial-gradient(370px circle at 20% 90%, rgba(33, 99, 120, 0.8) 0, #121A29 100%);
+  color: #FFF;
 }
 
 .navbar-vertical .navbar-nav>.nav-item .nav-link.active .icon svg .color-background,

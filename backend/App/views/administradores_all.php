@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <title>
-    Administradores - ASO CARDIO - GRUPO LAHE
+    Administradores - MENTAL HEALTH - GRUPO LAHE
 </title>
 
 <body class="bg-white-aside g-sidenav-show  bg-gray-100">

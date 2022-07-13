@@ -28,7 +28,7 @@ class Contenedor extends Controller{
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
 
             <a class="navbar-brand m-0" href="/Principal/" target="_blank">
-                <img src="/assets/img/foro.png" class="navbar-brand-img h-100" alt="main_logo">
+                <img src="/assets/img/logo_mental_login.png" class="navbar-brand-img h-100" alt="main_logo">
                 <span class="ms-1 font-weight-bold"></span>
                 <p style="margin-top: 15px;"><span class="fa fa-user morado-musa-text"></span> {$_SESSION['nombre']}</p>
             </a>
@@ -234,8 +234,8 @@ html;
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link rel="apple-touch-icon" sizes="76x76" href="https://forolatamcardiometabolico.com/assets/img/adium.png">
-            <link rel="icon" type="image/png" href="https://forolatamcardiometabolico.com/assets/img/adium.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="https://registro.forum-mentalbrain.com/assets/img/icono.png">
+            <link rel="icon" type="image/png" href="https://registro.forum-mentalbrain.com/assets/img/icono.png">
             
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
             <!-- Nucleo Icons -->

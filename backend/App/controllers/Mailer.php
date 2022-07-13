@@ -36,7 +36,7 @@ class Mailer
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom($msg['email'], 'ASO CARDIO 2022');
+            $mail->setFrom($msg['email'], 'MENTAL HEALTH 2022');
             $mail->addAddress($msg['email'], $msg['name']);     //Add a recipient
 
 
@@ -92,7 +92,7 @@ class Mailer
         <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
             
             <div class="container">
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png" alt="">
                 <br>
                 <p>
                     Hola <b>'.$msg['name'].'</b>
@@ -106,7 +106,7 @@ class Mailer
                 <p>
                 Recuerde que sus pases de abordar estarán disponibles hasta 48 horas de anticipación al vuelo, debe tener cargado y validado con éxito su comprobante de vacunación y su prueba SARS-CoV-2 con un lapso no mayor a 48 horas del vuelo.
                 </p>
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="firma">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png"alt="firma">
 
                     
                 
@@ -149,7 +149,7 @@ class Mailer
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom($msg['email'], 'ASO CARDIO 2022');
+            $mail->setFrom($msg['email'], 'MENTAL HEALTH 2022');
             $mail->addAddress($msg['email'], $msg['name']);     //Add a recipient
 
 
@@ -205,14 +205,14 @@ class Mailer
         <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
             
             <div class="container">
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png" alt="">
                 <br>
                 <p>
                     Hola <b>'.$msg['name'].'</b>
                 </p>
                 <br>
                 <p style="text-align: justify;">
-                    Le informamos que sus pases de abordar rumbo a la ASO CARDIO 2022, fueron cargados con éxito, usted puede consultarlos en su app móvil en la sección de Pases de Abordar que ya se encuentra activa o a través del siguiente link para consulta automática
+                    Le informamos que sus pases de abordar rumbo a la MENTAL HEALTH 2022, fueron cargados con éxito, usted puede consultarlos en su app móvil en la sección de Pases de Abordar que ya se encuentra activa o a través del siguiente link para consulta automática
                     <br> <br><a href="'.$msg['url'].'"></a>'.$msg['url'].'<br> <br>
                     Si usted necesita ayuda, comuníquese a la línea de soporte a través de WhatsApp en el siguiente enlace 
                     <br>
@@ -222,7 +222,7 @@ class Mailer
                     
                 </p>
                 <br>
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="firma">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png"alt="firma">
 
                     
                 
@@ -264,7 +264,7 @@ class Mailer
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom($msg['email'], 'ASO CARDIO 2022');
+            $mail->setFrom($msg['email'], 'MENTAL HEALTH 2022');
             $mail->addAddress($msg['email'], $msg['name']);     //Add a recipient
 
 
@@ -320,7 +320,7 @@ class Mailer
         <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
             
             <div class="container">
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png" alt="">
                 <br>
                 <p>
                     Hola <b>'.$msg['name'].'</b>
@@ -337,7 +337,7 @@ class Mailer
                     
                 </p>
                 <br>
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="firma">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png" alt="firma">
 
                     
                 
@@ -371,7 +371,7 @@ class Mailer
         $pase = VuelosDao::getPaseById($id_pase_abordar)[0];
 
         if($pase['tipo'] == 1){
-            $titulo_pase = 'PASE DE ABORDAR RUMBO ASO CARDIO.';
+            $titulo_pase = 'PASE DE ABORDAR RUMBO MENTAL HEALTH.';
             $link = "comprobante_vuelo_uno/".$pase['link'];
             // $link = 'comprobante_vuelo_uno/'.$pase['link'];
         }else{
@@ -396,7 +396,7 @@ class Mailer
             $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
             //Recipients
-            $mail->setFrom($pase['email'], 'ASO CARDIO 2022');
+            $mail->setFrom($pase['email'], 'MENTAL HEALTH 2022');
             $mail->addAddress($pase['email'], $pase['nombre']);     //Add a recipient
 
 
@@ -452,15 +452,15 @@ class Mailer
         <body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
             
             <div class="container">
-                <img src="https://registro.foromusa.com/img/musa-01.png" alt="firma">
+                <img src="https://registro.forum-mentalbrain.com/assets/img/cinta_correo.png" alt="firma">
                 <br>
                 <p>
                     Hola <b>'.$pase['nombre'].'</b>
                 </p>
                 <br>
                 <p style="text-align: justify;">
-                    Le informamos que sus pases de abordar rumbo al 9° foro Cardiometabólico, ASO CARDIO 2022, fueron cargados con éxito, usted puede consultarlos en su app móvil en la sección de Pases de Abordar que ya se encuentra activa o a través del siguiente link para consulta automática
-                    <br> <br><a href="https://admin.foromusa.com/'.$link.'">https://admin.foromusa.com/'.$link.'</a><br> <br>
+                    Le informamos que sus pases de abordar rumbo al Foro de Salud Mental, MENTAL HEALTH 2022, fueron cargados con éxito, usted puede consultarlos en su app móvil en la sección de Pases de Abordar que ya se encuentra activa o a través del siguiente link para consulta automática
+                    <br> <br><a href="https://registro.forum-mentalbrain.com/'.$link.'">https://registro.forum-mentalbrain.com/'.$link.'</a><br> <br>
                     Si usted necesita ayuda, comuníquese a la línea de soporte a través de WhatsApp en el siguiente enlace 
                     <br>
                     <br><a href="https://wa.link/t8evgh">https://wa.link/t8evgh</a>

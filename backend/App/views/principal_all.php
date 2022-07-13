@@ -1,6 +1,6 @@
 <?php echo $header; ?>
 <title>
-    Principal - ASO CARDIO - GRUPO LAHE
+    Principal - MENTAL HEALTH - GRUPO LAHE
 </title>
 <body class="g-sidenav-show  bg-gray-100">
     <!-- <aside class="bg-white-aside sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
@@ -307,7 +307,7 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="d-flex flex-column h-100">
-                                            <h4 class="m-4">¡Bienvenido a tu administrador equipo GRUPO LAHE!<br><strong>ASO CARDIO 2022</strong></h4>
+                                            <h4 class="m-4">¡Bienvenido a tu administrador equipo GRUPO LAHE!<br><strong>FORUM MENTAL HEALTH 2022</strong></h4>
                                         </div>
                                     </div>
                                 </div>
