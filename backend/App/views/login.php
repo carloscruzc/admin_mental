@@ -19,7 +19,7 @@
             }
 
             .morado-musa-text{
-                color: rgb(98 56 246);
+                color: #344767;
             }
 
             .bg-musa-morado{

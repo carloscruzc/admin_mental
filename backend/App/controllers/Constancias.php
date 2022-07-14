@@ -49,7 +49,7 @@ class Constancias extends Controller
 
         $modal = '';
         foreach (GeneralDao::getAllTalleres() as $key => $value) {
-            $modal .= $this->generarModal($value);
+            $modal .= $this->generarModalEditUser($value);
         }
         
         View::set('modal',$modal);    
@@ -81,6 +81,19 @@ class Constancias extends Controller
 
         View::set('modal',$modal);    
         View::set('tabla', $this->getAllUsuariosTaller($politica));
+        View::set('asideMenu',$this->_contenedor->asideMenu());    
+        View::render("constancias_all");
+    }
+
+    public function ConstanciasRegistrados() {
+
+        $modal = '';
+        foreach (GeneralDao::getAllUsuariosTalleres() as $key => $value) {
+            $modal .= $this->generarModalEditUser($value);
+        }
+        
+        View::set('modal',$modal);
+        View::set('tabla', $this->getAllUsuariosTaller());
         View::set('asideMenu',$this->_contenedor->asideMenu());    
         View::render("constancias_all");
     }
@@ -380,20 +393,16 @@ html;
     public function updateData()
     {
         $data = new \stdClass();
+        $data->_id_registro_acceso = MasterDom::getData('id_registro_acceso');
         $data->_nombre = MasterDom::getData('nombre');
+        $data->_segundo_nombre = MasterDom::getData('segundo_nombre');
         $data->_apellido_paterno = MasterDom::getData('apellido_paterno');
         $data->_apellido_materno = MasterDom::getData('apellido_materno');
-        $data->_address = MasterDom::getData('address');
-        $data->_pais = MasterDom::getData('pais');
-        $data->_estado = MasterDom::getData('estado');
-        $data->_email = MasterDom::getData('email');
-        $data->_telephone = MasterDom::getData('telephone');
         // $data->_utilerias_administrador_id = $_SESSION['utilerias_administradores_id'];
-        // var_dump($data);
 
-        $id = AsistentesDao::update($data);
 
-        // var_dump($id);
+        $id = GeneralDao::update($data);
+
         if ($id) {
             echo "success";
             // $this->alerta($id,'add');
@@ -1088,7 +1097,7 @@ html;
               <td>
                     <div class="d-flex px-1 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm text-black"><span class="" style="font-size: 13px"></span>{$value['politica']}.- REGISTRADOS</h6>
+                            <h6 class="mb-0 text-sm text-black"><span class="" style="font-size: 13px"></span>ACCESOS A REGISTRO</h6>
                         </div>
                     </div>
                 </td>
@@ -1102,7 +1111,7 @@ html;
                 </td>
 
                 <td style="text-align:center;">
-                    <a href="/Constancias/TallerPorIdProducto/{$value['politica']}" class="btn bg-pink btn-icon-only text-white" title="Lista de registrados" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Lista de registrados"><i class="fas fa-list"> </i></a>
+                    <a href="/Constancias/ConstanciasRegistrados/" class="btn bg-pink btn-icon-only text-white" title="Lista de registrados" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Lista de registrados"><i class="fas fa-list"> </i></a>
                 </td>
             </tr>
 html;
@@ -1111,7 +1120,7 @@ html;
         return $html;
     }
 
-    public function getAllUsuariosTaller($politica){
+    public function getAllUsuariosTaller(){
 
         $html = "";
         $html .= <<<html
@@ -1160,11 +1169,22 @@ html;
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nombre Registrado</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Constancias</th>
-            </tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Editar Usuario</th>
+           </tr>
         </thead>
 html;
         
-        foreach (GeneralDao::getAllUsuariosTalleres($politica) as $key => $value) {
+        foreach (GeneralDao::getAllUsuariosTalleres() as $key => $value) {
+            $status = '';
+            if($value['politica'] == 1){
+                $status.= <<<html
+                <span class="badge badge-success" style="background-color: #4682C8; color:white; text-align: center;"><strong>Usuario Registrado</strong></span>
+html;
+            }else{
+            $status.= <<<html
+                <span class="badge badge-success" style="background-color: #960025; color:white; text-align: center;"><strong>NO registrado</strong></span>
+html;
+            }
             $nombre = html_entity_decode($value['nombre']);
             $segundo_nombre = html_entity_decode($value['segundo_nombre']);
             $apellido = html_entity_decode($value['apellido_paterno']);
@@ -1185,14 +1205,18 @@ html;
                 <td>
                     <div class="d-flex px-1 py-1">
                         <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm text-black"><span class="" style="font-size: 13px"></span>APROBADO</h6>
+                            {$status}
                         </div>
                     </div>
                 </td>
 
                 <td style="text-align:center; vertical-align:middle;">
-                    <a href="/Constancias/abrirConstancia/{$value['clave']}/{$value['politica']}" class="btn bg-pink btn-icon-only text-white" title="Impresa" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Impresa" target="_blank"><i class="fas fa-print"> </i></a>
-                    <a href="/Constancias/abrirConstanciaDigital/{$value['clave']}/{$value['politica']}" class="btn bg-turquoise btn-icon-only text-white" title="Digital" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Digital" target="_blank"><i class="fas fa-print"> </i></a>
+                    <a href="/Constancias/abrirConstancia/{$value['clave']}/{$value['constancia']}" class="btn bg-pink btn-icon-only text-white" title="Impresa" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Impresa" target="_blank"><i class="fas fa-print"> </i></a>
+                    <a href="/Constancias/abrirConstanciaDigital/{$value['clave']}/{$value['constancia']}" class="btn bg-turquoise btn-icon-only text-white" title="Digital" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Digital" target="_blank"><i class="fas fa-print"> </i></a>
+                </td>
+
+                <td style="text-align:center; vertical-align:middle;">
+                    <button class="btn btn-red-cardio btn-icon-only text-white" type="button" title="Editar Usuario" data-toggle="modal" data-target="#editar-usuario{$value['id_registro_acceso']}"><i class="fas fa-edit"></i></button>
                 </td>
             </tr>
 html;
@@ -1201,63 +1225,63 @@ html;
         return $html;
     }
 
-    public function generarModal($datos){
+    public function generarModalEditUser($datos){
         $modal = <<<html
-            <div class="modal fade" id="modal-etiquetas-{$datos['id_registro_acceso']}" role="dialog" aria-labelledby="" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modal-ver-pdf-Label">Etiquetas para {$datos['nombre']} {$datos['apellido_paterno']} {$datos['apellido_materno']} - {$datos['id_registro_acceso']}</h5>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <input hidden id="id_registro_acceso" name="id_registro_acceso" type="text" value="{$datos['id_registro_acceso']}" readonly>
-                            <div class="row">
-                                <!--form action="" id="form_etiquetas"-->
-                                    <div class="row">
-                                    
-                                        <script>
-                                        $(document).ready(function() {
-                                            
+            <div class="modal fade" id="editar-usuario{$datos['id_registro_acceso']}" role="dialog" aria-labelledby="" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Editar Usuario
+                    </h5>
 
-                                            $('#btn_imprimir_etiquetas_{$datos['id_registro_acceso']}').on("click", function(event) {
-                                                no_habitacion_{$datos['id_registro_acceso']} = $("#no_habitacion_{$datos['id_registro_acceso']}").val();
-                                                clave_ra_{$datos['id_registro_acceso']} = $("#clave_ra_{$datos['id_registro_acceso']}").val();
-                                                no_etiquetas_{$datos['id_registro_acceso']} = $("#no_etiquetas_{$datos['id_registro_acceso']}").val();
+                    <span type="button" class="btn bg-gradient-danger" data-dismiss="modal" aria-label="Close">
+                        X
+                    </span>
+                </div>
+                <div class="modal-body">
+                    <p style="font-size: 12px">Ingrese los nuevos datos del usuario seleccionado.</p>
+                    <hr>
+                    <form method="POST" enctype="multipart/form-data" class="form_datos_edit">
+                        <div class="form-group row">
 
-                                                console.log(no_habitacion_{$datos['id_registro_acceso']});
-                                                console.log(no_etiquetas_{$datos['id_registro_acceso']});
-                                                console.log(clave_ra_{$datos['id_registro_acceso']});
-                                                $('#btn_imprimir_etiquetas_{$datos['id_registro_acceso']}').attr("href", "/Asistentes/abrirpdf/" + clave_ra_{$datos['id_registro_acceso']} + "/" + no_etiquetas_{$datos['id_registro_acceso']} + "/" + no_habitacion_{$datos['id_registro_acceso']});
-                                            });
-                                        });
-                                        </script>
+                            <div class="form-group col-md-4" style="display:none;">
+                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="id_registro_acceso">Id Usuario <span class="required">*</span></label>
+                                <input class="form-control" id="id_registro_acceso" name="id_registro_acceso" placeholder="ID Usuario" value="{$datos['id_registro_acceso']}" require readonly>
+                                <span id="msg_email" style="font-size: 0.75rem; font-weight: 700;margin-bottom: 0.5rem;"></span>
+                            </div>
 
-                                        <div class="col-md-12">
-                                            <input type="hidden" id="clave_ra_{$datos['id_registro_acceso']}" name="clave_ra_{$datos['id_registro_acceso']}" value="{$datos['clave']}" readonly>
-                                        </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="nombre">Nombre <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" value="{$datos['nombre']}" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            </div>
 
-                                        <!--div class="col-md-10">
-                                            <label hidden>Número de Habitación</label>
-                                            
-                                        </div-->
+                            <div class="form-group col-md-6">
+                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="segundo_nombre">Segundo nombre <span class="required">*</span></label>
+                                <input type="text" class="form-control" id="segundo_nombre" name="segundo_nombre" placeholder="Segundo nombre" value="{$datos['segundo_nombre']}" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            </div>
 
-                                        <div class="col-md-6">
-                                        <input type="number" id="no_habitacion_{$datos['id_registro_acceso']}" value="0" readonly hidden name="no_habitacion_{$datos['id_registro_acceso']}" value="0" readonly hidden class="form-control">
-                                            <label>Número de etiquetas</label>
-                                            <input type="number" id="no_etiquetas_{$datos['id_registro_acceso']}" name="no_etiquetas_{$datos['id_registro_acceso']}" class="form-control">
-                                        </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="apellido_paterno">Apellido paterno <span class="required">*</span></label> 
+                                <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" placeholder="Apellido paterno" value="{$datos['apellido_paterno']}" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            </div>
 
-                                        <div class="col-md-3 m-auto">
-                                            <a href="" id="btn_imprimir_etiquetas_{$datos['id_registro_acceso']}" target="_blank" class="btn btn-info mt-4" type="submit">Imprimir Etiquetas</a>
-                                        </div>
-                                    </div>
-                                <!--/form-->
+                            <div class="form-group col-md-6">
+                                <label class="control-label col-md-12 col-sm-1 col-xs-12" for="apellido_materno">Apellido materno <span class="required">*</span></label> 
+                                <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" placeholder="Apellido materno" value="{$datos['apellido_materno']}" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();">
+                            </div>
+                            
+                            <div class="modal-footer">
+                                <div class="button-row d-flex mt-4 col-12">
+                                    <button class="btn bg-gradient-success ms-auto mb-0 mx-4" name="btn_upload" id="btn_upload" type="submit" title="Actualizar">Actualizar</button>
+                                    <a class="btn bg-gradient-secondary mb-0 js-btn-prev" data-dismiss="modal" title="Prev">Cancelar</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                </div>
+
+            </div>
                 </div>
             </div>
 html;

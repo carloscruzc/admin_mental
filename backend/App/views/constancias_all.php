@@ -368,3 +368,53 @@ Constancias - MENTAL HEALTH - GRUPO LAHE
 
     });
 </script>
+
+<script>
+	$(".form_datos_edit").on("submit",function(event){
+            event.preventDefault();
+            // var formData = new FormData(document.getElementById("form_datos_edit"));
+            var formData = $(this).serialize();
+
+            console.log(formData);
+
+            // for (var value of formData.values()) {
+            //     console.log(value);
+            // }
+            $.ajax({
+                url: "/Constancias/updateData",
+                type: "POST",
+                data: formData,
+                // contentType: false,
+                // processData: false,
+                beforeSend: function() {
+                    console.log("Procesando....");
+                    // alert('Se está borrando');
+
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+
+                    if(respuesta == 'success'){
+                        Swal.fire("¡Se actualizo el usuario correctamente!", "", "success").
+                        then((value) => {
+                            window.location.reload();
+                        });
+                    }else{
+                        Swal.fire("¡Hubo un error al actualizar el usuario!", "", "warning").
+                        then((value) => {
+                            window.location.reload();
+                        });
+                    }
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                    // alert('Error');
+                    Swal.fire("¡Hubo un error al crear el archivo!", "", "warning").
+                    then((value) => {
+                        window.location.reload();
+                    });
+                }
+            });
+        });
+
+</script>
