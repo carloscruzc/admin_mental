@@ -141,7 +141,7 @@ public static function getInfo($clave){
     $query=<<<sql
     SELECT ra.*, ra.id_registro_acceso as utilerias_asistentes_id, ra.ticket_virtual as clave_ticket
     FROM registros_acceso ra
-    WHERE ra.ticket_virtual = '$clave'
+    WHERE ra.clave = '$clave'
 sql;
 
     return $mysqli->queryAll($query);
@@ -351,40 +351,17 @@ sql;
 
     public static function getRegistrosAsistenciasByCode($code){
         $mysqli = Database::getInstance();
-//         $query=<<<sql
-//         SELECT a.nombre AS nombre_asistencia, ras.utilerias_asistentes_id, ua.usuario, ras.id_registro_asistencia, ras.status,
-//         ra.telefono, ra.email, ra.especialidad, lp.nombre AS nombre_especialidad,
-//         CONCAT (ra.nombre,' ',ra.segundo_nombre,' ',apellido_paterno,' ',apellido_materno) AS nombre_completo
-//         FROM registros_asistencia ras
-//         INNER JOIN asistencias a
-//         INNER JOIN utilerias_asistentes ua
-//         INNER JOIN registros_acceso ra
-//         INNER JOIN linea_principal lp
-//         ON a.id_asistencia = id_asistencias
-//         and ua.utilerias_asistentes_id = ras.utilerias_asistentes_id
-//         and ra.id_registro_acceso = ua.id_registro_acceso
-//         and lp.id_linea_principal = ra.especialidad        
-//         WHERE a.clave = '$code'
-// sql;
-
-$mysqli = Database::getInstance();
         $query=<<<sql
-        SELECT a.nombre AS nombre_asistencia, ras.utilerias_asistentes_id, ua.usuario, ras.id_registro_asistencia, ras.status,
-        ra.telefono, ra.email, ra.especialidad, lp.nombre AS nombre_especialidad,
-        CONCAT (ra.nombre,' ',ra.segundo_nombre,' ',apellido_paterno,' ',apellido_materno) AS nombre_completo
+        SELECT a.nombre AS nombre_asistencia, ras.utilerias_asistentes_id, ra.email, ras.id_registro_asistencia, ras.status,
+        ra.telefono, ra.email, ra.especialidad, ra.clave,lp.nombre AS nombre_especialidad,
+        CONCAT (ra.nombre,' ',ra.segundo_nombre,' ',ra.apellido_paterno,' ',ra.apellido_materno) AS nombre_completo
         FROM registros_asistencia ras
-        INNER JOIN asistencias a
+        INNER JOIN asistencias a ON a.id_asistencia = id_asistencias
         INNER JOIN utilerias_asistentes ua
-        INNER JOIN registros_acceso ra
-        INNER JOIN linea_principal lp
-        ON a.id_asistencia = ras.id_asistencias
-        and ua.id_registro_acceso = ras.utilerias_asistentes_id
-        and ra.id_registro_acceso = ua.id_registro_acceso
-        and lp.id_linea_principal = ra.especialidad        
-        WHERE a.clave = '$code';
+        INNER JOIN registros_acceso ra ON ra.id_registro_acceso = ras.utilerias_asistentes_id
+        INNER JOIN linea_principal lp ON lp.id_linea_principal = ra.especialidad
+        WHERE a.clave = '$code' GROUP BY ras.utilerias_asistentes_id;
 sql;
-
-
         return $mysqli->queryAll($query);
     }
 

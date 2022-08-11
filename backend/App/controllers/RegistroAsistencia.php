@@ -99,7 +99,7 @@ html;
         foreach ($lista_registrados as $key => $value) {
             $tabla .= <<<html
             <tr>
-                <td><b>{$value['nombre_completo']} </b> <span class="badge badge-info" style="color: white; background: {$value['color_linea']};"> {$value['nombre_linea_ejecutivo']} </span></td>
+                <td><b>{$value['nombre_completo']} </b> <span class="badge badge-info" style="color: white; background: {$value['color_linea']};"> {$value['clave']} </span></td>
                 <td>
                     <u><a href="mailto:{$value['email']}"><span class="fa fa-mail-bulk"> </span> {$value['email']}</a></u>
                     <br><br>
