@@ -28,10 +28,10 @@ class RegistroAsistencia
         $extraHeader = <<<html
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="apple-touch-icon" sizes="76x76" href="https://foromusa.com/assets/images/Musa0-01.png">
-        <link rel="icon" type="image/png" href="https://foromusa.com/assets/images/Musa0-01.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://registro.forum-mentalbrain.com/assets/img/icono.png">
+        <link rel="icon" type="image/png" href="https://registro.forum-mentalbrain.com/assets/img/icono.png">
         <title>
-            Asistencia CONAVE Convención 2022 ASOFARMA
+            Asistencia Mental
         </title>
         <!--     Fonts and icons     -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />

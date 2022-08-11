@@ -351,6 +351,23 @@ sql;
 
     public static function getRegistrosAsistenciasByCode($code){
         $mysqli = Database::getInstance();
+//         $query=<<<sql
+//         SELECT a.nombre AS nombre_asistencia, ras.utilerias_asistentes_id, ua.usuario, ras.id_registro_asistencia, ras.status,
+//         ra.telefono, ra.email, ra.especialidad, lp.nombre AS nombre_especialidad,
+//         CONCAT (ra.nombre,' ',ra.segundo_nombre,' ',apellido_paterno,' ',apellido_materno) AS nombre_completo
+//         FROM registros_asistencia ras
+//         INNER JOIN asistencias a
+//         INNER JOIN utilerias_asistentes ua
+//         INNER JOIN registros_acceso ra
+//         INNER JOIN linea_principal lp
+//         ON a.id_asistencia = id_asistencias
+//         and ua.utilerias_asistentes_id = ras.utilerias_asistentes_id
+//         and ra.id_registro_acceso = ua.id_registro_acceso
+//         and lp.id_linea_principal = ra.especialidad        
+//         WHERE a.clave = '$code'
+// sql;
+
+$mysqli = Database::getInstance();
         $query=<<<sql
         SELECT a.nombre AS nombre_asistencia, ras.utilerias_asistentes_id, ua.usuario, ras.id_registro_asistencia, ras.status,
         ra.telefono, ra.email, ra.especialidad, lp.nombre AS nombre_especialidad,
@@ -360,13 +377,14 @@ sql;
         INNER JOIN utilerias_asistentes ua
         INNER JOIN registros_acceso ra
         INNER JOIN linea_principal lp
-        ON a.id_asistencia = id_asistencias
-        and ua.utilerias_asistentes_id = ras.utilerias_asistentes_id
+        ON a.id_asistencia = ras.id_asistencias
+        and ua.id_registro_acceso = ras.utilerias_asistentes_id
         and ra.id_registro_acceso = ua.id_registro_acceso
-        and lp.id_linea_principal = ra.especialidad
-        
-        WHERE a.clave = '$code'
+        and lp.id_linea_principal = ra.especialidad        
+        WHERE a.clave = '$code';
 sql;
+
+
         return $mysqli->queryAll($query);
     }
 
