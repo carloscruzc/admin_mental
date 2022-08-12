@@ -434,8 +434,6 @@ html;
         // var_dump($user_id);
         //Eliminar los archivos del servidor
         //$this->deleteFiles($id_constancia);
-
-
         // $codigo_rand = $this->generateRandomString();
         $codigo_rand = $clave_ticket;
 
