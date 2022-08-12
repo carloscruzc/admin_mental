@@ -319,7 +319,7 @@ html;
                 'id_asigna_habitacion' => $id_asigna_habitacion,
                 'numero_habitacion' => $numero_habitacion,
                 'anchor_abrir_pdf' => "<a href='/RegistroAsistencia/abrirpdf/{$user_clave['clave']}' target='_blank' style='display:none;' id='a_abrir_etiqueta'>abrir</a>",
-                'anchor_abrir_gafete' => "<a href='/RegistroAsistencia/abrirpdfGafete/{$user_clave['clave']}/{$user_clave['clave_ticket']}' target='_blank' style='display:none;' id='a_abrir_gafete' class='btn btn-info'><i class='fa fal fa-address-card' style='font-size: 18px;'></i>Presione esté botón para descargar el gafete</a>",
+                'anchor_abrir_gafete' => "<a href='/RegistroAsistencia/abrirpdfGafete/{$user_clave['clave']}' target='_blank' style='display:none;' id='a_abrir_gafete' class='btn btn-info'><i class='fa fal fa-address-card' style='font-size: 18px;'></i>Presione esté botón para descargar el gafete</a>",
 
             ];
         } else {
@@ -389,7 +389,7 @@ html;
         $segundo_nombre = html_entity_decode($datos_user['segundo_nombre']);
         $apellido = html_entity_decode($datos_user['apellido_paterno']);
         $segundo_apellido = html_entity_decode($datos_user['apellido_materno']);
-        $nombre_completo = ($nombre)." ".($apellido);
+        $nombre_completo = ($nombre)." ".($apellido)." ".($segundo_apellido);
         $nombre_completo = mb_strtoupper($nombre_completo);
         
 
@@ -397,21 +397,20 @@ html;
 
 
         $pdf = new \FPDF($orientation = 'P', $unit = 'mm', array(300, 210));
-        $pdf->AddPage();
-        $pdf->SetFont('Arial', 'B', 8);    //Letra Arial, negrita (Bold), tam. 20
+        $pdf->AddPage();        
         $pdf->SetFont('Arial', 'B', 16);
-        $pdf->Image('qrs/gafetes/'.$clave.'.png',87.5,185,35,0,'PNG');
-        $pdf->SetFont('Arial', 'B', 25);
+        $pdf->Image('qrs/gafetes/'.$clave.'.png',85,50,40,40,'PNG');
+        $pdf->SetFont('Arial', 'B', 30);
         // $pdf->Multicell(133, 80, $clave_ticket, 0, 'C');
 
         //$pdf->Image('1.png', 1, 0, 190, 190);
-        $pdf->SetFont('Arial', 'B', 5);    //Letra Arial, negrita (Bold), tam. 20
+        //$pdf->SetFont('Arial', 'B', 5);    //Letra Arial, negrita (Bold), tam. 20
         //$nombre = utf8_decode("Jonathan Valdez Martinez");
         //$num_linea =utf8_decode("Línea: 39");
         //$num_linea2 =utf8_decode("Línea: 39");
 
-        $pdf->setXY(70,222);
-        $pdf->SetFont('Times','B',18);
+        $pdf->setXY(70,205);
+        $pdf->SetFont('Arial','B',18);
         #4D9A9B
         $pdf->SetTextColor(0, 0, 0);
         $pdf->SetLeftMargin(0);
