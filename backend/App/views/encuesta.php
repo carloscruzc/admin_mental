@@ -205,8 +205,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/1.png" alt="" class="photo">
-                                                                                            Dr. Carlos Macias Ojeda 
-                                                                                        </td>
+                                                                                            Dra. Yolanda Pica                                                                                        </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
                                                                                                 <div class="col-sm-1 ">
@@ -245,7 +244,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/2.png" alt="" class="photo">
-                                                                                            Dr. Jorge Yamamoto Cuevas 
+                                                                                            Dr. Pablo Bagnati
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -285,7 +284,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/3.png" alt="" class="photo">
-                                                                                            Dr. Rafael García Rascón 
+                                                                                            Dr. Gustavo Vázquez
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -325,7 +324,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/4.png" alt="" class="photo">
-                                                                                            Dr. Manuel Robles Sanroman 
+                                                                                            Dr. Jesús Ramírez
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -365,7 +364,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/5.png" alt="" class="photo">
-                                                                                            Dr. Antonio Manuel Ortega 
+                                                                                            Dr. Jeremy Cruz
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -405,7 +404,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/6.png" alt="" class="photo">
-                                                                                            Dra. Tania Nava Bringas 
+                                                                                            Dra. Joanna Jiménez
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -445,7 +444,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/7.png" alt="" class="photo">
-                                                                                            Dr. Carlos Macias Ojeda 
+                                                                                            Dra. Ana De La Fuente
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -485,7 +484,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/8.png" alt="" class="photo">
-                                                                                            Dr. Jorge Yamamoto Cuevas 
+                                                                                            Dr. Alonso Morales
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -525,7 +524,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/9.png" alt="" class="photo">
-                                                                                            Dr. Rafael García Rascón 
+                                                                                            Dr. Carlos Arnaud
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -565,7 +564,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/10.png" alt="" class="photo">
-                                                                                            Dr. Manuel Robles Sanroman 
+                                                                                            Dr. Rodrigo Marín
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -605,7 +604,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/11.png" alt="" class="photo">
-                                                                                            Dr. Antonio Manuel Ortega 
+                                                                                            Dra. Thelma Sánchez
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
@@ -645,7 +644,7 @@ echo $header;
                                                                                     <tr>
                                                                                         <td>
                                                                                             <img width="190" height="190" src="/img/ponentes/12.png" alt="" class="photo">
-                                                                                            Dra. Tania Nava Bringas 
+                                                                                            Dr. Juan E. Vélez
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="row mt-4 d-flex justify-content-around text-center">
