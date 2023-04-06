@@ -746,7 +746,7 @@ echo $header;
                                                                             </li>
 
                                                                             <li>
-                                                                                <p>8. Desde el punto de vista científico, ¿volvería a participar en Embajadores OA?</p>
+                                                                                <p>8. Desde el punto de vista científico, ¿volvería a participar en Mental Health?</p>
                                                                                 <div class="row mt-4 d-flex justify-content-center text-center">
                                                                                     <div class="col-sm-1 ">
                                                                                         <input type="radio" class="btn-check btn-face-" id="btncheck150" name="group39" required value="si">
