@@ -779,7 +779,7 @@ echo $header;
                                                                             <li>
                                                                                 <div class="row mt-3">
                                                                                     <div class="col-md-6 m-auto">
-                                                                                        <button class="btn btn-secondary" id="btnEnviar" >Enviar respuestas!</button>
+                                                                                        <button class="btn btn-secondary" id="btnEnviar" >Enviar respuestas</button>
                                                                                         
                                                                                         <a href="" id="btn_download_pdf" style="display: none;">descargar</a>
                                                                                     </div>
